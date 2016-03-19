@@ -1,0 +1,81 @@
+\documentclass[paper=a4, fontsize=12pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage{fourier}
+
+\usepackage[english]{babel}												
+\usepackage[protrusion=true,expansion=true]{microtype}	
+\usepackage{amsmath,amsfonts,amsthm} 
+\usepackage[pdftex]{graphicx}	
+\usepackage{url}
+
+
+
+\usepackage{sectsty}
+\allsectionsfont{\centering \normalfont\scshape}
+
+
+
+\usepackage{fancyhdr}
+\pagestyle{fancyplain}
+\fancyhead{}											
+\fancyfoot[L]{}											
+\fancyfoot[C]{}											
+\fancyfoot[R]{\thepage}									
+\renewcommand{\headrulewidth}{0pt}			
+\renewcommand{\footrulewidth}{0pt}				% Remove footer underlines
+\setlength{\headheight}{13.6pt}
+
+
+%%% Equation and float numbering
+\numberwithin{equation}{section}		% Equationnumbering: section.eq#
+\numberwithin{figure}{section}			% Figurenumbering: section.fig#
+\numberwithin{table}{section}				% Tablenumbering: section.tab#
+
+
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} 	% Horizontal rule
+
+\title{
+		%\vspace{-1in} 	
+		\usefont{OT1}{bch}{b}{n}
+		\normalfont \normalsize \textsc{University of Matyland, Baltimore County} \\ [25pt]
+		\horrule{0.5pt} \\[0.4cm]
+		\huge Optimization Project \\
+		\horrule{2pt} \\[0.5cm]
+}
+\author{
+		\normalfont 								\normalsize
+        Jiayong Lin\\[-3pt]		\normalsize
+        \today
+}
+\date{}
+
+
+%%% Begin document
+\begin{document}
+\maketitle
+\section{Compare Hill Climb, Hill Climb random start and simulated annealing}
+After I wrote all the python code of hill climb, hill climb random start and siimulated annealing, I test the program again and again. 
+
+Form the test result, the hill climb is the most inexact secarch algorithm. In hill climb, the algorithm will stop at local maxima, plateaus and diagonal ridges. However, the speed of the hill climb algorithm is the fastest, because it only have one start and does not need calculate probability. 
+
+The hill climb with random start, in my result, generates the most accurate result. It runs a fixed number of restarts and select the smallest minimum value. In my project, this is the most effective method. 
+
+The simulated annealing also can generate accurate result sometime. Instead of picking the best move, it picks one randomly. Because the minmum value may hid in a group of big value, the minmum value cannot be found by hill climb and hill climb random start in this situation. However, there is always a chance of escaping from the local minmum. The speed of simulated annealing is slow because it needs to calculate the probaility and temperature at every move. 
+
+
+
+
+
+
+\section{Conclusion}
+   All three different local search algorithm has their own merit and drawbacks. Hill climb is fast, but lacks of accuracy; 
+   
+   Simulated annealing generally gives a good solution and statistically gurantees finding a good solution, but it is very slow and cannot tells if the solution is optimal;
+   
+   Random restart hill climbing is effective and save tiem, but it will keep getting the same local optimum if the restart points all very close.
+
+By contrast, random restart hill climbing is more economic and efficient. it is the better local search method. 
+
+
+\end{document}
